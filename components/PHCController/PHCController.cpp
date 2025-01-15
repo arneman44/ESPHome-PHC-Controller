@@ -351,7 +351,7 @@ namespace esphome
             UARTDevice::write_array(data, len);
 
             // Flush everything out before pulling the flow control pin low
-            UARTDevice::flush();
+            //UARTDevice::flush();
 
             // Pull the write pin LOW
             if (flow_control_pin_ != NULL)
