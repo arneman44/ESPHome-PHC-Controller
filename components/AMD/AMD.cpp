@@ -37,7 +37,6 @@ namespace esphome
                 }
             }
         }
-
         void AMD::write_state(bool state)
         {
             resend_counter = 0;
@@ -57,6 +56,7 @@ namespace esphome
             write_array(message, 5, true);
             last_request = millis();
         }
+
 
         void AMD::dump_config()
         {

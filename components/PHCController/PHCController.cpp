@@ -344,7 +344,6 @@ namespace esphome
             // Pull the write pin HIGH
             if (flow_control_pin_ != NULL)
             {
-                flow_control_pin_->digital_write(true);
                 delay(FLOW_PIN_PULL_HIGH_DELAY);
             }
 
@@ -354,13 +353,9 @@ namespace esphome
             // Flush everything out before pulling the flow control pin low
             UARTDevice::flush();
 
-            // safety delay to prevent clashing with repsonses
-            delay(1);
-
             // Pull the write pin LOW
             if (flow_control_pin_ != NULL)
             {
-                delay(FLOW_PIN_PULL_LOW_DELAY);
                 flow_control_pin_->digital_write(false);
             }
         }
