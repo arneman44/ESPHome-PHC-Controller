@@ -47,7 +47,7 @@ namespace esphome
             // 3 MSBits determine the channel, lower 5 bits are for functionality
             uint8_t function = (channel << 5) | (state ? 0x02 : 0x03);
 
-            uint8_t message[5] = {static_cast<uint8_t>(AMD_MODULE_ADDRESS | address), static_cast<uint8_t>((toggle_map->get_toggle(this) ? 0x80 : 0x00) | 0x01), function, 0x00, 0x00};
+            uint8_t message[5] = {static_cast<uint8_t>(AMD_MODULE_ADDRESS | address), static_cast<uint8_t>((toggle_map->get_toggle(this) ? 0x30 : 0x20) | 0x01), function, 0x00, 0x00};
             short crc = util::PHC_CRC(message, 3);
 
             message[3] = static_cast<uint8_t>(crc & 0xFF);
